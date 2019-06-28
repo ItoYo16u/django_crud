@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block title %}
-一覧を表示する予定
+一覧を表示
 {% endblock title %}
 
 {% block content %}
@@ -33,13 +33,14 @@
                 {{i.price}}
             </td>
             <td>
-                <a href="{% url 'crud:show' id=i.id %}">
+                <a href="{% url 'crud:show' id=i.id %}" class="btn btn-default">
                     show
             </td>
             <td>
-                <a href="{% url 'crud:delete' id=i.id %}" class="btn" method="delete">
-                    delete
-                </a>
+                <form action="{% url 'crud:delete' id=i.id %}" method="POST" class="form">
+                    {% csrf_token %}
+                    <button class="btn submit btn-default delete btn-danger" type="submut" name="delete" >delete</button>
+                </form>
             </td>
         </tr>
         {% endfor %}

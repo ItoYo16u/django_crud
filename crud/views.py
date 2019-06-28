@@ -36,6 +36,9 @@ def create(request):
     return render(request,'crud/create.html',{'form':form})
 
 def delete(request,id=None):
-    target=get_object_or_404(householdAccount,pk=id)
-    target.delete()
-    return redirect('crud:index')
+    if request.method=="POST":
+        target=get_object_or_404(householdAccount,pk=id)
+        target.delete()
+        return redirect('crud:index')
+    else:
+        return redirect('crud:index')
