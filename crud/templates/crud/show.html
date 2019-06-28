@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block title %}
+ 詳細
+{% endblock title %}
+
+{% block content %}
+<h3>詳細</h3>
+<table class="table table-striped">
+    <tbody>
+        <tr>
+            <td>
+                {{ rec.item }}
+            </td>
+        </tr>
+            <tr>
+            <td>
+                {{ rec.price }}
+            </td>
+            </tr>
+            <tr>
+            <td>
+                {{rec.category}}
+            </td>
+            <tr>
+            <td>
+                {{rec.created_at}}
+            </td>
+            </tr>
+            </tr>
+
+    </tbody>
+</table>
+<a class="btn btn-default" href="{% url 'crud:edit' id=rec.id %}">
+    edit
+</a>
+
+<!-- ページネーションをここに入れる -->
+
+{% endblock content %}
+
+<!-- jsを入れる -->
+{% block script %}
+{% endblock %}

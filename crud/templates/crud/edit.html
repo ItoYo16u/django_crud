@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% load bootstrap %}
+{% block title %}
+ edit
+{% endblock title %}
+
+{% block content %}
+<h3>edit</h3>
+
+{% if id %}
+<h3>edit note</h3>
+<form action="{% url 'crud:edit' id=id %}" method="POST" class="form-horizontal" role="form">
+
+
+{% else %}
+<h3>
+    register note
+</h3>
+<form action="{% url 'crud:create' %}" method="POST" class="form-horizontal" role="form">
+
+{% endif %}
+{% csrf_token %}
+{{ form|bootstrap_horizontal }}
+<div class="form-group">
+    <div>
+        <button type="submit" class="btn">update
+        </button>
+    </div>
+</div>
+</form>
+<a href="{% url 'crud:index' %}" class="btn">back</a>
+<!-- ページネーションをここに入れる -->
+
+{% endblock content %}
+
+<!-- jsを入れる -->
+{% block script %}
+{% endblock %}
