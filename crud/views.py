@@ -2,6 +2,9 @@ from django.shortcuts import render,get_object_or_404,redirect
 from django.http import HttpResponse
 from .models import householdAccount
 from .forms import householdAccountForm
+import io
+import csv
+import urllib
 # Create your views here.
 
 def index(request):
@@ -42,3 +45,25 @@ def delete(request,id=None):
         return redirect('crud:index')
     else:
         return redirect('crud:index')
+def download(request,id=None):
+    response=HttpResponse(content_type='text/csv; charset=utf-8')
+    filename = urllib.parse.quote((u'ItemData.csv').encode("utf-8"))
+    response['Content-Disposition']='attachment; filename*=UTF-8\'\'{}'.format(filename)
+    writer=csv.writer(response)
+    writer.writerow(['Item','Price','category','Memo','Created_at'])
+    note=get_object_or_404(householdAccount, pk=id)
+    writer.writerow([note.item,note.price,note.category,note.memo,note.created_at])
+    return response
+
+
+
+def download_all(request):
+    response=HttpResponse(content_type='text/csv; charset=utf-8')
+    filename = urllib.parse.quote((u'allDatum.csv').encode("utf-8"))
+    response['Content-Disposition']='attachment; filename*=UTF-8\'\'{}'.format(filename)
+    writer=csv.writer(response)
+    writer.writerow(['Item','Price','category','Memo','Created_at'])
+    for note in householdAccount.objects.all():
+        writer.writerow([note.item,note.price,note.category,note.memo,note.created_at])
+    return response
+

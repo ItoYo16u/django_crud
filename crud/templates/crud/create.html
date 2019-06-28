@@ -8,10 +8,6 @@
 <h3>create</h3>
 
 
-
-<h3>
-    register note
-</h3>
 <form action="{% url 'crud:create' %}" method="POST" class="form-horizontal" role="form">
 {% csrf_token %}
 {{ form|bootstrap_horizontal }}

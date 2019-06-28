@@ -1,11 +1,14 @@
 {% extends "base.html" %}
 
 {% block title %}
-一覧を表示
+all
 {% endblock title %}
 
 {% block content %}
-<h3>一覧表示</h3>
+<h3>all</h3>
+<a href="{% url 'crud:download_all' %}" class="btn btn-primary" style="float:right" >
+    download all household account book
+</a>
 <table class="table table-striped table-bordered">
     <thead>
         <tr>
