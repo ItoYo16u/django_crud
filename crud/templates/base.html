@@ -12,6 +12,30 @@
   <body>
     <nav class="navbar navbar-dark bg-dark" style="background-color: #000">
         <a class="navbar-brand" href="{% url 'crud:index' %}" style="color:#FFF">HOME</a>
+        <ul class="navbar-nav">
+          {% if user.is_authenticated %}
+         <li class="nav-item">
+           <a style="padding: 20px" class="logout nav-link"  href="{% url 'logout' %}">
+            Logout</a>
+          </li>
+          {% else %}
+          <li class="nav-item">
+            <a style="padding: 20px" class="signup nav-link" href="{% url 'accounts:signup' %}">
+              Sign up
+            </a>
+          </li>
+          <li class="nav-item">
+            <a style="padding: 20px" class="login nav-link" href="{% url 'login' %}">
+              Login
+            </a>
+          </li>
+          {% endif %}
+          <li class="nav-item">
+            <a style="padding: 20px" class="act nav-link" href="{% url 'crud:index' %}">
+              My book
+            </a>
+          </li>
+      </ul>
     </nav>
     <div>
         <h2 style="text-align:center">
