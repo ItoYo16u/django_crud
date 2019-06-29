@@ -124,3 +124,4 @@ STATIC_URL = '/static/'
 
 LOGIN_REDIRECT_URL='/'
 LOGOUT_REDIRECT_URL='/accounts/login/'
+ALLOWED_HOSTS = ['127.0.0.1', '.pythonanywhere.com']
