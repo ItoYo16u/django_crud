@@ -13,6 +13,9 @@ all
     <thead>
         <tr>
             <th>
+                Date
+            </th>
+            <th>
                 name
             </th>
             <th>
@@ -29,6 +32,9 @@ all
     <tbody>
         {% for i in householdAccounts %}
         <tr>
+            <td>
+                {{i.created_at.date}}
+            </td>
             <td>
                 {{ i.item }}
             </td>
@@ -53,10 +59,8 @@ all
 
 
 
-<!-- ページネーションをここに入れる -->
 
 {% endblock content %}
 
-<!-- jsを入れる -->
 {% block script %}
 {% endblock %}

@@ -6,3 +6,4 @@ class householdAccountForm(ModelForm):
         model = householdAccount
         fields =("item","price","category","memo")
 
+

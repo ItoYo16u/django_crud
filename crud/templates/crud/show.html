@@ -34,10 +34,10 @@
             </td>
             <tr>
                 <th>
-                    datetime
+                    date
                 </th>
             <td>
-                {{rec.created_at}}
+                {{rec.created_at.date}}
             </td>
             </tr>
             <tr>
@@ -59,10 +59,8 @@
 <a href="{% url 'crud:index' %}" class="btn btn-default">back</a>
 
 
-<!-- ページネーションをここに入れる -->
 
 {% endblock content %}
 
-<!-- jsを入れる -->
 {% block script %}
 {% endblock %}
