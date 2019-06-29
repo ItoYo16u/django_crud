@@ -5,58 +5,63 @@
 {% endblock title %}
 
 {% block content %}
-<h3>detail</h3>
-<a class="btn btn-primary" href="{% url 'crud:download' id=rec.id %}" style="float:right">download note</a>
-<table class="table table-striped table-bordered">
-    <tbody>
-        <tr>
-            <th>
-                name
-            </th>
-            <td>
-                {{ rec.item }}
-            </td>
-        </tr>
-            <tr>
-                <th>
-                    price
-                </th>
-            <td>
-                {{ rec.price }}
-            </td>
-            </tr>
-            <tr>
-                <th>
-                    category
-                </th>
-            <td>
-                {{rec.category}}
-            </td>
-            <tr>
-                <th>
-                    date
-                </th>
-            <td>
-                {{rec.created_at.date}}
-            </td>
-            </tr>
-            <tr>
-                <th>
-                    memo
-                </th>
-                <td>
-                    {{ rec.memo }}
-                </td>
-            </tr>
-            </tr>
-
-    </tbody>
-</table>
+<div class="row">
+    <div class="col-md-2"></div>
+        <div class="col-md-8">
+            <h3>detail</h3>
+            <a class="btn btn-primary" href="{% url 'crud:download' id=rec.id %}" style="float:right">download note</a>
+            <table class="table table-striped table-bordered">
+                <tbody>
+                    <tr>
+                        <th>
+                            name
+                        </th>
+                        <td>
+                            {{ rec.item }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            price
+                        </th>
+                    <td>
+                        {{ rec.price }}
+                    </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            category
+                        </th>
+                    <td>
+                        {{rec.category}}
+                    </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            date
+                        </th>
+                    <td>
+                        {{rec.created_at.date}}
+                    </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            memo
+                        </th>
+                        <td>
+                            {{ rec.memo }}
+                        </td>
+                    </tr>
+            </tbody>
+        </table>
 <a class="btn btn-default" href="{% url 'crud:edit' id=rec.id %}">
     edit
 </a>
 <br>
 <a href="{% url 'crud:index' %}" class="btn btn-default">back</a>
+</div>
+<div class="col-md-2"></div>
+</div>
 
 
 

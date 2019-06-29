@@ -6,56 +6,64 @@ all
 
 {% block content %}
 <h3>all</h3>
-<a href="{% url 'crud:download_all' %}" class="btn btn-primary" style="float:right" >
-    download all household account book
-</a>
-<table class="table table-striped table-bordered">
-    <thead>
-        <tr>
-            <th>
-                Date
-            </th>
-            <th>
-                name
-            </th>
-            <th>
-                price
-            </th>
-            <th>
-                details
-            </th>
-            <th>
-                delete
-            </th>
-        </tr>
-    </thead>
-    <tbody>
-        {% for i in householdAccounts %}
-        <tr>
-            <td>
-                {{i.created_at.date}}
-            </td>
-            <td>
-                {{ i.item }}
-            </td>
-            <td>
-                {{i.price}}
-            </td>
-            <td>
-                <a href="{% url 'crud:show' id=i.id %}" class="btn btn-default">
-                    show
-            </td>
-            <td>
-                <form action="{% url 'crud:delete' id=i.id %}" method="POST" class="form">
-                    {% csrf_token %}
-                    <button class="btn submit btn-default delete btn-danger" type="submut" name="delete" >delete</button>
-                </form>
-            </td>
-        </tr>
-        {% endfor %}
-    </tbody>
-</table>
-<a href="{% url 'crud:create' %}" class="btn btn-default">add</a>
+
+<div class="row">
+<div class="col-md-2">
+</div>
+<div class="col-md-8">
+        <a href="{% url 'crud:download_all' %}" class="btn btn-primary" style="float:right" >
+                download all household account book
+            </a>
+        <table class="table table-striped table-bordered">
+                <thead>
+                    <tr>
+                        <th>
+                            Date
+                        </th>
+                        <th>
+                            name
+                        </th>
+                        <th>
+                            price
+                        </th>
+                        <th>
+                            details
+                        </th>
+                        <th>
+                            delete
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for i in householdAccounts %}
+                    <tr>
+                        <td>
+                            {{i.created_at.date}}
+                        </td>
+                        <td>
+                            {{ i.item }}
+                        </td>
+                        <td>
+                            {{i.price}}
+                        </td>
+                        <td>
+                            <a href="{% url 'crud:show' id=i.id %}" class="btn btn-default">
+                                show
+                        </td>
+                        <td>
+                            <form action="{% url 'crud:delete' id=i.id %}" method="POST" class="form">
+                                {% csrf_token %}
+                                <button class="btn submit btn-default delete btn-danger" type="submut" name="delete" >delete</button>
+                            </form>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            <a href="{% url 'crud:create' %}" class="btn btn-default">add</a>
+</div>
+<div class="col-md-2"></div>
+</div>
 
 
 
