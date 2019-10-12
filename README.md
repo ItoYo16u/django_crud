@@ -1,0 +1,5 @@
+# django_crud
+Djangoを用いた家計簿アプリです。
+最低限のCRUD(Create,Read,Update,Delete)と、CSVダウンロード機能をつけています。
+フロントエンドは特にこだわらずbootstrapを利用しました。1日と少々で完成。
+デプロイはPython用のpaasであるPythonanywhereを利用しました。某IT企業のインターン選考の課題です。
